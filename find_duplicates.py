@@ -1,5 +1,5 @@
 def find_duplicates(nums):
-    # O(N) time complexity using a set to keep track of seen elements
+    # O(N) time complexity using sets to track seen elements and duplicates
     seen = set()
     duplicates = set()
     for num in nums:
