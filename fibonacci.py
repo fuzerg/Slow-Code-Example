@@ -1,8 +1,14 @@
 def fibonacci(n):
     """
-    A simple recursive implementation of Fibonacci numbers.
-    This implementation has exponential time complexity O(2^n).
+    An optimized iterative implementation of Fibonacci numbers.
+    This implementation has linear time complexity O(n) and O(1) space complexity.
     """
+    if n < 0:
+        raise ValueError("n must be a non-negative integer")
     if n <= 1:
         return n
-    return fibonacci(n-1) + fibonacci(n-2)
+    
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
