@@ -1,6 +1,7 @@
 def fibonacci(n):
     """
-    An optimized, O(N) iterative implementation of Fibonacci numbers.
+    An optimized iterative implementation of Fibonacci numbers.
+    This implementation has linear time complexity O(n) and constant space complexity O(1).
     """
     if n <= 1:
         return n
