@@ -1,6 +1,6 @@
 def fibonacci(n):
     """
-    An optimized O(N) iterative implementation of Fibonacci numbers.
+    An optimized, O(N) iterative implementation of Fibonacci numbers.
     """
     if n <= 1:
         return n
