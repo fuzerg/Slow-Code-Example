@@ -2,16 +2,18 @@ def aggregate_user_spending(users, transactions):
     # 'users' is a list of dicts: [{'id': 1, 'name': 'Alice'}, ...]
     # 'transactions' is a list of dicts: [{'user_id': 1, 'amount': 50.0}, ...]
     
-    results = []
-    for user in users:
-        total_spent = 0
-        # Inefficient nested loop scan
-        for txn in transactions:
-            if txn['user_id'] == user['id']:
-                total_spent += txn['amount']
+    from collections import defaultdict
+    
+    # Pre-aggregate transaction amounts by user_id in O(T) time
+    spending = defaultdict(float)
+    for txn in transactions:
+        spending[txn['user_id']] += txn['amount']
         
+    results = []
+    # Build the final list in O(U) time
+    for user in users:
         results.append({
             'name': user['name'],
-            'total_spent': total_spent
+            'total_spent': spending[user['id']]
         })
     return results
