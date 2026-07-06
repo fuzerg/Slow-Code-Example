@@ -1,8 +1,10 @@
 def find_duplicates(nums):
-    # O(N^2) time complexity
-    duplicates = []
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] == nums[j] and nums[i] not in duplicates:
-                duplicates.append(nums[i])
-    return duplicates
+    # O(N) time complexity using sets to track seen elements and duplicates
+    seen = set()
+    duplicates = set()
+    for num in nums:
+        if num in seen:
+            duplicates.add(num)
+        else:
+            seen.add(num)
+    return list(duplicates)
